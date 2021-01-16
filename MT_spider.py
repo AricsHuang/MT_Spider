@@ -52,7 +52,7 @@ def get_shop_info(session, wm_latitude=22634767, wm_longitude=113834247):
     allInfo = []
     try:
         # 只爬取第四页，后续数据需要登录才能获取
-        for index in range(2):
+        for index in range(4):
         # while(True):
             res = session.post(url=url, headers=headers, data=data, timeout=5)
 
@@ -65,7 +65,7 @@ def get_shop_info(session, wm_latitude=22634767, wm_longitude=113834247):
             else:
                 print("get_shop_info：返回数据失败，status_code非200")
             start_index += 1  # 页数加1
-            # time.sleep(2)
+            time.sleep(2)
 
     except exceptions.ConnectionError:
             print("get_shop_info：网络连接错误")
